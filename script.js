@@ -587,7 +587,12 @@ document.getElementById("continueButton").addEventListener("click", function () 
             return;
         }
 
-        scanner = new Html5Qrcode("reader");
+        scanner = new Html5Qrcode("reader", {
+    formatsToSupport: [
+        Html5QrcodeSupportedFormats.QR_CODE
+    ],
+    useBarCodeDetectorIfSupported: false
+});
 
         try {
             await scanner.start(
