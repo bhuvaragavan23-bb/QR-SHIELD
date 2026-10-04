@@ -629,6 +629,34 @@ document.getElementById("continueButton").addEventListener("click", function () 
     }
 
     document.getElementById("stopButton").addEventListener("click", stopScanner);
+    document.getElementById("qrImageInput").addEventListener("change", async function (event) {
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    if (typeof Html5Qrcode === "undefined") {
+        scanStatus.textContent = "QR scanner library did not load.";
+        return;
+    }
+
+    const imageScanner = new Html5Qrcode("reader");
+
+    try {
+        scanStatus.textContent = "Analyzing QR image...";
+
+        const decodedText = await imageScanner.scanFile(file, true);
+
+        qrInput.value = decodedText;
+        verifyQR(decodedText);
+
+        scanStatus.textContent = "QR image scanned successfully.";
+
+    } catch (error) {
+        console.log(error);
+        scanStatus.textContent =
+            "Could not detect a QR code in this image.";
+    }
+});
 
     document.getElementById("generateButton").addEventListener("click", function () {
         const text = document.getElementById("generateInput").value.trim();
