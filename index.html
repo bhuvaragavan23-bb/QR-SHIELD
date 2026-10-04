@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Shield | Cybersecurity Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+    <div class="shield-graphic">
+        <span>🛡️</span>
+    </div>
+    <h2>QR <span>SHIELD</span></h2>
+    <p>Secure Every Scan</p>
+</div>
+
+            <nav class="navigation">
+                <a href="#dashboard" class="active">▦ Dashboard</a>
+                <a href="#scanner">▣ Scan QR</a>
+                <a href="#generator">▧ Generate QR</a>
+                <a href="#history">◷ Scan History</a>
+                <a href="#security">⬡ Security Analysis</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>🛡️ Safer Scans</p>
+                <small>Protect yourself from suspicious QR codes.</small>
+                <button id="themeButton">🌙 Toggle Theme</button>
+            </div>
+        </aside>
+
+        <!-- Main dashboard -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <h1>Security Dashboard</h1>
+                    <p>Monitor QR scans, detect threats, and stay secure.</p>
+                </div>
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Ready
+                </div>
+            </header>
+
+            <!-- Statistics -->
+            <section id="dashboard" class="stats">
+                <div class="stat-card">
+                    <div class="stat-icon">▦</div>
+                    <h3>Total Scans</h3>
+                    <p id="totalScans">0</p>
+                    <small>All QR scans</small>
+                </div>
+
+                <div class="stat-card threat-card">
+                    <div class="stat-icon">⚠</div>
+                    <h3>Threats Detected</h3>
+                    <p id="threatsDetected">0</p>
+                    <small>Suspicious indicators</small>
+                </div>
+
+                <div class="stat-card payment-card">
+                    <div class="stat-icon">₹</div>
+                    <h3>Payment Scans</h3>
+                    <p id="paymentScans">0</p>
+                    <small>UPI QR scans</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">◈</div>
+                    <h3>Protection</h3>
+                    <p class="protection-label status-active">Active</p>
+                    <small>Local risk analysis</small>
+                </div>
+            </section>
+
+            <!-- Scanner and verification -->
+            <section class="panel" id="scanner">
+                <div class="panel-heading">
+                    <div>
+                        <h2>▣ QR Scanner</h2>
+                        <p>Scan and analyze QR code content.</p>
+                    </div>
+                    <span class="panel-tag">Scanner</span>
+                </div>
+
+                <div class="scanner-layout">
+                    <div class="scanner-box">
+                        <h3>Camera Scanner</h3>
+                        <div class="scanner-frame">
+    			<div class="scanner-corner top-left"></div>
+    			<div class="scanner-corner top-right"></div>
+    			<div class="scanner-corner bottom-left"></div>
+    			<div class="scanner-corner bottom-right"></div>
+
+    			<div class="laser-line"></div>
+    			<div id="reader"></div>
+			</div>
+                        <div class="security-visual">
+    			<div class="security-orbit orbit-one"></div>
+    			<div class="security-orbit orbit-two"></div>
+    			<div class="security-core">🛡️</div>
+    			<p>QR SHIELD ACTIVE</p>
+    			<span>Real-time QR security monitoring</span>
+			</div>
+
+                        <div class="scanner-buttons">
+                            <button id="startButton">Start Scanner</button>
+                            <button id="stopButton">Stop Scanner</button>
+                        </div>
+
+                        <p id="scanStatus">Scanner is stopped.</p>
+                    </div>
+
+                    <div class="manual-box">
+                        <h3>Manual Verification</h3>
+                        <p>Paste QR code content to analyze it.</p>
+
+                        <input id="qrInput" type="text"
+                               placeholder="Enter QR content">
+ <button id="verifyButton">🛡️ Verify QR</button>
+
+                       <div class="qr-action-buttons">
+    <button id="continueButton" class="continue-btn">
+        ✓ Continue
+    </button>
+
+    <button id="cancelButton" class="cancel-btn">
+        ✕ Cancel
+    </button>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                <!-- Scan results -->
+                <div id="result" class="result-panel">
+                    <h3>Latest Scan Result</h3>
+
+                    <p id="qrContent">No QR content scanned yet.</p>
+                    <p id="contentType"></p>
+                    <p id="securityMessage"></p>
+
+                    <div id="security">
+                       <div id="riskResult">
+    <div class="risk-header">
+        <div>
+            <h3>🛡️ Security Risk Analysis</h3>
+            <p>Real-time QR threat assessment</p>
+        </div>
+
+        <div class="risk-circle">
+            <div class="risk-circle-inner">
+                <span id="riskNumber">--</span>
+                <small>/100</small>
+            </div>
+        </div>
+    </div>
+
+    <p id="riskScore">Risk Score: Not analyzed</p>
+    <p id="riskLevel">Risk Level: Not analyzed</p>
+
+    <div id="riskMeterTrack">
+        <div id="riskMeterFill"></div>
+    </div>
+
+    <ul id="riskReasons"></ul>
+<div id="scanAnalysis" class="scan-analysis">
+    <div class="analysis-spinner"></div>
+    <div>
+        <strong>ANALYZING QR SECURITY</strong>
+        <small>Checking QR content and threat indicators...</small>
+    </div>
+</div>
+<div id="threatVisual" class="threat-visual">
+    <div class="threat-dot"></div>
+    <div>
+        <strong id="threatStatus">SYSTEM READY</strong>
+        <small id="threatDescription">
+            Waiting for QR security analysis
+        </small>
+    </div>
+</div>
+</div>
+                    </div>
+
+                    <div class="report-actions">
+                        <button id="downloadReport">
+                            Download Security Report
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UPI details -->
+                <div id="upiDetails" style="display:none;">
+                    <h3>💳 UPI Payment Details</h3>
+                    <p id="upiName"></p>
+                    <p id="upiId"></p>
+                    <p id="upiAmount"></p>
+                    <p id="upiCurrency"></p>
+                    <p>⚠️ Verify the recipient and amount in your payment app before paying.</p>
+                </div>
+            </section>
+
+            <!-- QR generator -->
+            <section class="panel" id="generator">
+                <div class="panel-heading">
+                    <div>
+                        <h2>▧ QR Code Generator</h2>
+                        <p>Create QR codes for text or URLs.</p>
+                    </div>
+                </div>
+
+                <div class="generator-area">
+                    <input id="generateInput" type="text"
+                           placeholder="Enter text or URL">
+                    <button id="generateButton">Generate QR</button>
+                </div>
+
+                <div id="qrOutput"></div>
+            </section>
+
+            <!-- Scan history -->
+            <section class="panel" id="history">
+                <div class="panel-heading">
+                    <div>
+                        <h2>◷ Scan History</h2>
+                        <p>Review your previous QR scans.</p>
+                    </div>
+                </div>
+
+                <div class="history-actions">
+                    <button id="exportHistory">Export Scan History</button>
+                    <button id="clearHistory">Clear History</button>
+                </div>
+
+                <ul id="historyList"></ul>
+            </section>
+
+            <footer class="dashboard-footer">
+                <p>QR Shield | Cybersecurity Dashboard</p>
+                <small>Risk analysis provides indicators, not a guarantee of safety.</small>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Libraries and application code -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

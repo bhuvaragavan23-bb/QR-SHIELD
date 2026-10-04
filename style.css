@@ -1,0 +1,1055 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #07111f;
+    color: #e5f0ff;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: #0b1729;
+    border-right: 1px solid #19304d;
+    padding: 25px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.brand {
+    padding: 10px 12px 35px;
+}
+
+.brand h2 {
+    font-size: 23px;
+    color: #fff;
+}
+
+.brand span {
+    color: #1597ff;
+}
+
+.brand p {
+    color: #8ba5c5;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navigation a {
+    color: #a9bfd9;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 9px;
+    transition: 0.2s;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    background: #123d70;
+    color: #fff;
+    border-left: 3px solid #1597ff;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 18px 12px;
+    border: 1px solid #193b5e;
+    border-radius: 12px;
+    background: #0e2036;
+}
+
+.sidebar-bottom p {
+    color: #42b5ff;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.sidebar-bottom small {
+    color: #9bb0ca;
+    line-height: 1.6;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.topbar p,
+.panel-heading p {
+    color: #91a8c4;
+    font-size: 14px;
+}
+
+.system-status {
+    color: #39dba0;
+    background: #0b2b29;
+    border: 1px solid #155e4d;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.status-dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    background: #39dba0;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+/* STATISTICS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, #10233c, #0b192b);
+    border: 1px solid #1c4169;
+    border-radius: 14px;
+    padding: 22px;
+    min-width: 0;
+    transition: 0.25s;
+}
+
+.stat-card:hover {
+    border-color: #1597ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #087cf020;
+}
+
+.stat-card h3 {
+    color: #a9bfd9;
+    font-size: 14px;
+    margin: 14px 0 8px;
+}
+
+.stat-card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stat-card small {
+    color: #8098b7;
+    display: block;
+    margin-top: 8px;
+}
+
+.stat-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 43px;
+    height: 43px;
+    background: #103b69;
+    border-radius: 10px;
+    color: #45b5ff;
+    font-size: 23px;
+}
+
+.threat-card {
+    border-color: #70323b;
+}
+
+.threat-card .stat-icon {
+    background: #49222c;
+    color: #ff6a75;
+}
+
+.payment-card {
+    border-color: #176457;
+}
+
+.payment-card .stat-icon {
+    background: #10463f;
+    color: #4ce0b1;
+}
+
+.protection-label {
+    color: #39dba0 !important;
+    font-size: 22px !important;
+}
+
+/* PANELS */
+.panel {
+    background: #0c1b2e;
+    border: 1px solid #1b3a5c;
+    border-radius: 15px;
+    padding: 24px;
+    margin-bottom: 25px;
+    min-width: 0;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.panel-heading h2,
+.panel h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.panel-tag {
+    background: #123b68;
+    color: #6ec4ff;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* SCANNER */
+.scanner-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.scanner-box,
+.manual-box {
+    background: #091629;
+    border: 1px solid #1a3a5e;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.scanner-box h3,
+.manual-box h3 {
+    margin-bottom: 15px;
+}
+
+#reader {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+}
+
+.scanner-buttons,
+.history-actions,
+.report-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#scanStatus {
+    margin-top: 15px;
+    color: #92a9c5;
+    font-size: 13px;
+}
+
+.manual-box p {
+    color: #91a8c4;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 14px;
+    background: #071426;
+    border: 1px solid #25496e;
+    color: #fff;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+input:focus {
+    border-color: #1597ff;
+    box-shadow: 0 0 0 2px #1597ff25;
+}
+
+/* BUTTONS */
+button {
+    background: #087cf0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 17px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1597ff;
+    transform: translateY(-1px);
+}
+
+#stopButton,
+#clearHistory {
+    background: #472631;
+    color: #ffabb2;
+}
+
+#stopButton:hover,
+#clearHistory:hover {
+    background: #71313e;
+}
+
+#themeButton {
+    width: 100%;
+    margin-top: 20px;
+    background: #163451;
+}
+
+/* RESULTS */
+.result-panel {
+    margin-top: 25px;
+    padding: 20px;
+    background: #091629;
+    border: 1px solid #1b3b5d;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+.result-panel h3 {
+    margin-bottom: 14px;
+}
+
+#qrContent,
+#contentType,
+#securityMessage,
+#riskScore,
+#riskLevel {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+#securityMessage {
+    color: #f5b94c;
+}
+
+#riskResult {
+    margin-top: 20px;
+}
+
+#riskMeterTrack {
+    height: 10px;
+    width: 100%;
+    background: #1b3049;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+#riskMeterFill {
+    width: 0%;
+    height: 100%;
+    background: #22c55e;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+#riskReasons {
+    padding-left: 22px;
+    color: #f3b75c;
+    line-height: 1.8;
+}
+
+/* UPI DETAILS */
+#upiDetails {
+    background: #102b2a;
+    border: 1px solid #176457;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    overflow-wrap: anywhere;
+}
+
+#upiDetails h3 {
+    color: #58dfb6;
+    margin-bottom: 15px;
+}
+
+#upiDetails p {
+    margin: 10px 0;
+}
+
+/* QR GENERATOR */
+.generator-area {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.generator-area input {
+    flex: 1;
+}
+
+#qrOutput {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 100%;
+    overflow: auto;
+}
+
+/* HISTORY */
+#historyList {
+    list-style: none;
+    margin-top: 20px;
+}
+
+#historyList li {
+    padding: 14px;
+    background: #0a192b;
+    border: 1px solid #193653;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #bdd0e7;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+.dashboard-footer {
+    text-align: center;
+    padding: 20px;
+    color: #8198b5;
+    font-size: 13px;
+}
+
+.dashboard-footer small {
+    display: block;
+    margin-top: 8px;
+}
+
+/* LIGHT MODE */
+body.light-mode {
+    background: #edf3fa;
+    color: #172b45;
+}
+
+body.light-mode .sidebar {
+    background: #fff;
+    border-color: #d2dfed;
+}
+
+body.light-mode .brand h2,
+body.light-mode .topbar h1,
+body.light-mode .panel h2,
+body.light-mode .panel h3 {
+    color: #172b45;
+}
+
+body.light-mode .navigation a {
+    color: #405873;
+}
+
+body.light-mode .navigation a:hover,
+body.light-mode .navigation a.active {
+    background: #dceeff;
+    color: #075eb6;
+}
+
+body.light-mode .panel,
+body.light-mode .stat-card,
+body.light-mode .scanner-box,
+body.light-mode .manual-box,
+body.light-mode .result-panel {
+    background: #fff;
+    border-color: #d2dfed;
+}
+
+body.light-mode .stat-card p {
+    color: #172b45;
+}
+
+body.light-mode input {
+    background: #f5f8fc;
+    color: #172b45;
+    border-color: #bdcfe2;
+}
+
+body.light-mode #historyList li {
+    background: #f5f8fc;
+    color: #263f5c;
+    border-color: #d2dfed;
+}
+
+body.light-mode .sidebar-bottom {
+    background: #edf5ff;
+    border-color: #c7d9ee;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .brand {
+        padding: 5px 10px 15px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .navigation a {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .scanner-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .generator-area {
+        flex-direction: column;
+    }
+
+    .generator-area button {
+        width: 100%;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+}
+/* Make the shield graphic clearly visible */
+.sidebar .brand .shield-graphic {
+    width: 85px !important;
+    height: 85px !important;
+    margin: 10px auto 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #00d9ff !important;
+    border-radius: 50% !important;
+    background: radial-gradient(
+        circle,
+        #164e8a,
+        #07152b
+    ) !important;
+    box-shadow:
+        0 0 15px #00d9ff,
+        0 0 35px #007bff,
+        inset 0 0 15px #00d9ff !important;
+    animation: shieldGlow 2s ease-in-out infinite alternate;
+}
+
+.sidebar .brand .shield-graphic span {
+    font-size: 46px !important;
+    display: inline-block !important;
+}
+/* Main cybersecurity graphic */
+.security-visual {
+    position: relative;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 15px 0;
+    border-radius: 16px;
+    background: radial-gradient(
+        circle,
+        #123d68,
+        #071426 75%
+    );
+    border: 1px solid #087bba;
+}
+
+.security-core {
+    z-index: 2;
+    font-size: 58px;
+    filter: drop-shadow(0 0 15px #00d9ff);
+    animation: shieldFloat 2.5s ease-in-out infinite;
+}
+
+.security-visual p {
+    z-index: 2;
+    color: #00e5ff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 10px 0 5px;
+}
+
+.security-visual span {
+    z-index: 2;
+    color: #b8d9ee;
+    font-size: 12px;
+}
+
+.security-orbit {
+    position: absolute;
+    border: 1px solid #00bfff;
+    border-radius: 50%;
+    animation: orbitPulse 3s ease-in-out infinite;
+}
+
+.orbit-one {
+    width: 120px;
+    height: 120px;
+}
+
+.orbit-two {
+    width: 165px;
+    height: 165px;
+    animation-delay: 1s;
+}
+
+@keyframes shieldFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes orbitPulse {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.9;
+    }
+}
+/* Animated QR scanning laser */
+#reader {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #00bfff !important;
+    border-radius: 12px;
+}
+
+.scanner-frame {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #00d9ff;
+    border-radius: 12px;
+    min-height: 250px;
+}
+
+.laser-line {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background: #00f5ff;
+    box-shadow: 0 0 12px #00f5ff;
+    z-index: 20;
+    pointer-events: none;
+    animation: moveLaser 2s linear infinite alternate;
+}
+
+@keyframes moveLaser {
+    from { top: 5%; }
+    to { top: 95%; }
+}
+/* Professional QR scanner corners */
+
+.scanner-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+.scanner-corner {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-color: #00e5ff;
+    border-style: solid;
+    z-index: 60;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px #00e5ff);
+}
+
+/* Top left */
+.top-left {
+    top: 12px;
+    left: 12px;
+    border-width: 4px 0 0 4px;
+}
+
+/* Top right */
+.top-right {
+    top: 12px;
+    right: 12px;
+    border-width: 4px 4px 0 0;
+}
+
+/* Bottom left */
+.bottom-left {
+    bottom: 12px;
+    left: 12px;
+    border-width: 0 0 4px 4px;
+}
+
+/* Bottom right */
+.bottom-right {
+    bottom: 12px;
+    right: 12px;
+    border-width: 0 4px 4px 0;
+}
+
+.scanner-frame:hover .scanner-corner {
+    filter:
+        drop-shadow(0 0 8px #00e5ff)
+        drop-shadow(0 0 15px #008cff);
+}
+/* Live protection indicator */
+
+.status-active {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-active::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    background: #00ff9d;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff9d;
+    animation: statusPulse 1.5s infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+/* Dynamic Cybersecurity Risk Circle */
+
+.risk-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.risk-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  background:
+    radial-gradient(circle, #081525 58%, transparent 59%),
+    conic-gradient(
+        var(--risk-color, #22c55e) 0deg var(--risk-angle),
+        #14243a var(--risk-angle) 360deg
+    );
+
+    box-shadow:
+        0 0 15px #008cff,
+        0 0 35px rgba(0, 140, 255, 0.35);
+
+    animation: riskGlow 2.5s ease-in-out infinite alternate;
+}
+
+.risk-circle-inner {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: #081525;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    border: 1px solid #164d70;
+}
+
+.risk-circle-inner span {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+}
+
+.risk-circle-inner small {
+    color: #9bb8cc;
+    font-size: 11px;
+}
+
+@keyframes riskGlow {
+    from {
+        box-shadow:
+            0 0 10px #008cff,
+            0 0 20px rgba(0, 140, 255, 0.25);
+    }
+
+    to {
+        box-shadow:
+            0 0 20px #00d9ff,
+            0 0 40px rgba(0, 140, 255, 0.45);
+    }
+}
+/* Threat Analysis Visual */
+.threat-visual {
+    margin-top: 20px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #1d4260;
+    border-radius: 12px;
+    background: rgba(8, 25, 42, 0.8);
+}
+
+.threat-dot {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 12px #22c55e;
+    animation: threatPulse 1.5s infinite;
+}
+
+.threat-visual strong {
+    display: block;
+    color: #22c55e;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.threat-visual small {
+    display: block;
+    margin-top: 4px;
+    color: #9bb8cc;
+}
+
+@keyframes threatPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.55;
+    }
+}
+/* Dynamic Risk Panel Glow */
+
+#riskResult {
+    transition: all 0.4s ease;
+}
+
+#riskResult.risk-low {
+    border-color: #22c55e;
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.25);
+}
+
+#riskResult.risk-medium {
+    border-color: #f59e0b;
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.3);
+}
+#riskResult.risk-warning {
+    border-color: #38bdf8;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+}
+
+#riskResult.risk-high {
+    border-color: #ef4444;
+    box-shadow: 0 0 22px rgba(239, 68, 68, 0.4);
+}
+/* QR Security Analysis Animation */
+
+.scan-analysis {
+    display: none;
+    align-items: center;
+    gap: 14px;
+    margin-top: 15px;
+    padding: 14px 18px;
+    border: 1px solid #008cff;
+    border-radius: 12px;
+    background: rgba(0, 140, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
+}
+
+.scan-analysis strong {
+    display: block;
+    color: #00d9ff;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.scan-analysis small {
+    display: block;
+    margin-top: 4px;
+    color: #9bb8cc;
+}
+
+.analysis-spinner {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #173653;
+    border-top-color: #00e5ff;
+    border-right-color: #008cff;
+    border-radius: 50%;
+    animation: analysisSpin 0.8s linear infinite;
+    flex-shrink:0;
+}
+.qr-action-buttons {
+    display: flex !important;
+    gap: 12px !important;
+    margin-top: 25px !important;
+    padding-top: 5px !important;
+}
+
+.qr-action-buttons button {
+    flex: 1 !important;
+}
+.manual-box .qr-action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 15px !important;
+    margin-top: 25px !important;
+    width: 100% !important;
+}
+
+.manual-box .qr-action-buttons button {
+    flex: 1 !important;
+    margin: 0 !important;
+}
+/* QR Shield - Professional Scan History */
+
+#historyList {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+#historyList li {
+    position: relative;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0, 30, 55, 0.95),
+        rgba(0, 15, 30, 0.95)
+    );
+
+    border: 1px solid rgba(0, 217, 255, 0.35);
+
+    box-shadow:
+        0 0 12px rgba(0, 217, 255, 0.08),
+        inset 0 0 15px rgba(0, 217, 255, 0.03);
+
+    color: #dff9ff;
+    font-size: 14px;
+    line-height: 1.7;
+
+    word-break: break-word;
+
+    transition: 0.25s ease;
+}
+
+#historyList li:hover {
+    border-color: #00d9ff;
+    box-shadow:
+        0 0 18px rgba(0, 217, 255, 0.2),
+        inset 0 0 15px rgba(0, 217, 255, 0.05);
+
+    transform: translateY(-2px);
+}
+/* QR Shield - Risk Highlight */
+
+#historyList li {
+    white-space: pre-wrap;
+}
+
+#historyList li::first-line {
+    font-weight: 600;
+}
