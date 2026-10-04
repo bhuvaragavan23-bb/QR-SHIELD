@@ -592,7 +592,14 @@ document.getElementById("continueButton").addEventListener("click", function () 
         try {
             await scanner.start(
                 { facingMode: "environment" },
-                { fps: 10, qrbox: 250 },
+                {
+    fps: 15,
+    qrbox: { width: 350, height: 350 },
+    aspectRatio: 1.0,
+    experimentalFeatures: {
+        useBarCodeDetectorIfSupported: true
+    }
+},
                 async function (decodedText) {
                     qrInput.value = decodedText;
                     verifyQR(decodedText);
